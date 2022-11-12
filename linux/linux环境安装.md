@@ -26,11 +26,11 @@
 >
 > 根据系统版本以及位数选择tar.gz
 >
-> ![](C:\Users\Administrator\Desktop\study\linux\images\image-0ce0659c9ad74eab81e80d04b1000db2.png)
+> ![](images\image-0ce0659c9ad74eab81e80d04b1000db2.png)
 >
 > 复制下载链接
 >
-> ![](C:\Users\Administrator\Desktop\study\linux\images\image-971d274b30404abcb2618a5eff5e4fc3.png)
+> ![](images\image-971d274b30404abcb2618a5eff5e4fc3.png)
 >
 > ```shell
 > mkdir /usr/java
@@ -134,7 +134,7 @@ systemctl stop firewalld
 
 3、阿里云安全组设置
 
-![](C:\Users\Administrator\Desktop\study\linux\images\微信截图_20221111152323.png)
+![](images\微信截图_20221111152323.png)
 
 # 七、安装nacos
 
