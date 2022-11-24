@@ -70,6 +70,8 @@
 
 # 三、安装Mysql
 
+太难了，自行百度吧
+
 # 四、安装nginx
 
 ## 4.1、方法一：使用yum安装
@@ -95,7 +97,7 @@ systemctl status nginx	#查看状态
 
 自定义配置文件目录为: /etc/nginx/conf.d/
 
-## 方法二：安装包安装
+## 4.2、方法二：安装包安装
 
 1、安装nginx所需要的环境
 
@@ -209,3 +211,6 @@ systemctl stop firewalld
 # 八、安装mongoDB
 
 # 九、安装RabbitMQ
+
+# 十、安装seata
+
