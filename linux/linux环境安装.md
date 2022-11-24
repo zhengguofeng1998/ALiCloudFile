@@ -72,6 +72,74 @@
 
 # 四、安装nginx
 
+## 4.1、方法一：使用yum安装
+
+1、安装nginx
+
+```shell
+$  yum -y install nginx   # 安装 nginx
+$  yum remove nginx  # 卸载 nginx
+```
+
+```shell
+systemctl enable nginx # 设置开机启动 
+systemctl start nginx    # 启动
+systemctl stop nginx	# 停止
+systemctl restart nginx	#重启
+systemctl status nginx	#查看状态
+```
+
+安装成功后，默认的网站目录为： /usr/share/nginx/html
+
+默认的配置文件为：/etc/nginx/nginx.conf
+
+自定义配置文件目录为: /etc/nginx/conf.d/
+
+## 方法二：安装包安装
+
+1、安装nginx所需要的环境
+
+```shell
+yum -y install pcre pcre-devel # 让 nginx 支持重写功能
+# zlib 库提供了很多压缩和解压缩的方式，nginx 使用 zlib 对 http 包内容进行 gzip 压缩
+yum -y install zlib zlib-devel 
+# 安全套接字层密码库，用于通信加密
+yum -y install openssl openssl-devel
+```
+
+2、下载nginx压缩包
+
+```shell
+https://nginx.org/en/download.html
+tar -zxvf nginx-1.11.5.tar.gz #解压缩
+```
+
+3、验证环境
+
+```shell
+cd nginx-1.11.5
+./configure --prefix=/usr/local/nginx # 检查平台安装环境
+注：
+	--prefix=/usr/local/nginx 是编译后安装的目录
+```
+
+4、编译安装nginx
+
+```shell
+make # 编译
+make install # 安装
+```
+
+5、nginx启动等命令
+
+```shell
+nginx # 启动
+nginx -c /usr/local/nginx/conf/nginx.conf # 指定配置文件启动
+nginx -s stop # 停止
+nginx -s restart # 重启
+nginx -s reload #重启并加载配置文件
+```
+
 # 五、安装maven
 
 # 六、安装redis
