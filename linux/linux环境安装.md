@@ -68,6 +68,8 @@
 
 # 二、安装GIT
 
+暂不需要
+
 # 三、安装Mysql
 
 太难了，自行百度吧
@@ -144,6 +146,8 @@ nginx -s reload #重启并加载配置文件
 
 # 五、安装maven
 
+暂不需要
+
 # 六、安装redis
 
 ## 6.1、安装redis
@@ -208,9 +212,40 @@ systemctl stop firewalld
 
 # 七、安装nacos
 
+1、下载安装包
+
+```shell
+https://github.com/alibaba/nacos/releases  # 网址
+tar -zxvf nacos-server-2.1.2.tar.gz 解压安装包
+```
+
+2、启动nasoc
+
+```shell
+在bin目录下,单机启动
+./startup.sh -m stanalone 
+```
+
+3、开放端口
+
+开启防火墙以及阿里云控制台的防火墙策略
+
 # 八、安装mongoDB
 
 # 九、安装RabbitMQ
 
 # 十、安装seata
+
+# 一些通用设置
+
+## 防火墙操作：
+
+```shell
+firewall-cmd --state # 查看防火墙状态
+firewall-cmd --reload # 重启防火墙
+systemctl enable firewalld.service # 设置开机自启
+firewall-cmd --zone=public --add-port=80/tcp --permanent # 开放80端口
+```
+
+
 
