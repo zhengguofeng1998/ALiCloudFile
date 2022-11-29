@@ -236,9 +236,123 @@ tar -zxvf nacos-server-2.1.2.tar.gz 解压安装包
 
 # 十、安装seata
 
-# 一些通用设置
+# 十一、安装 Elasticsearch
 
-## 防火墙操作：
+# 十二、安装Jenkins
+
+# 十三、安装xxl-job定时任务
+
+# 十四、安装docker
+
+1、下载需要的安装包
+
+```shell
+yum install -y yum-utils
+```
+
+2、设置阿里云镜像仓库
+
+```shell
+yum-config-manager \
+    --add-repo \
+    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+```
+
+3、更新yum软件包索引
+
+```shell
+yum makecache fast
+```
+
+4、安装社区版docker相关的配置
+
+```shell
+ yum install docker-ce docker-ce-cli containerd.io
+```
+
+5、启动docker
+
+```shell
+# 启动docker
+systemctl start docker
+# 查看当前版本号，是否启动成功
+docker version
+# 设置开机自启动
+systemctl enable docker
+```
+
+6、配置阿里云镜像加速(一次执行一下四条命令)
+
+```shell
+sudo mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://axvfsf7e.mirror.aliyuncs.com"]
+}
+EOF
+
+sudo systemctl daemon-reload
+
+sudo systemctl restart docker
+```
+
+7、相关命令
+
+```shell
+# 查看所有镜像
+docker images
+# 下载镜像
+docker pull tomcat
+# 指定版本下载
+docker pull mysql:5.7
+# 删除镜像
+	#1.删除指定的镜像id
+	docker rmi -f  镜像id
+	#2.删除多个镜像id
+	docker rmi -f  镜像id 镜像id 镜像id
+	#3.删除全部的镜像id
+	docker rmi -f  $(docker images -aq)
+# 运行容器
+docker run [可选参数] image
+    #参数说明
+    --name="名字"           指定容器名字
+    -d                     后台方式运行
+    -it                    使用交互方式运行,进入容器查看内容
+    -p                     指定容器的端口
+    (
+    -p ip:主机端口:容器端口  配置主机端口映射到容器端口
+    -p 主机端口:容器端口
+    -p 容器端口
+    )
+    -P                     随机指定端口(大写的P)
+# 进入到运行中的容器中
+docker exec -it tomcat /bin/bash
+# 推出容器
+exit
+# 列出正在运行中的容器
+docker ps
+# 列出所有运行过的容器
+docker ps -a
+#删除指定的容器
+docker rm 容器id
+#删除所有的容器
+docker rm -f $(docker ps -aq)
+#删除所有的容器
+docker ps -a -q|xargs docker rm
+#启动容器
+docker start 容器id
+#重启容器
+docker restart 容器id
+#停止当前运行的容器
+docker stop 容器id
+#强制停止当前容器
+docker kill 容器id
+```
+
+# 通用设置
+
+## 防火墙操作
 
 ```shell
 firewall-cmd --state # 查看防火墙状态
